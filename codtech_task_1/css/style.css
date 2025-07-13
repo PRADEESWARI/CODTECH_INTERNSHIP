@@ -1,0 +1,244 @@
+/* Header Layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+  
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+/* Logo */
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #2e7d32;
+  background: linear-gradient(45deg, #2e7d32, #66bb6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Auth + User Buttons */
+.auth-buttons a,
+.user-actions a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+  background: #4caf50;
+  padding: 14px 30px;
+  font-size: 20px;
+  border-radius: 25px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.user-actions a:hover {
+  transform: scale(1.05);
+}
+
+
+/* User Panel */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* User Icon */
+.user-icon {
+  width: 55px;
+  height: 55px;
+  font-size: 20px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Center Box */
+.center-box {
+  background-color: #e3ebe9;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  margin: auto;
+  margin-top: 100px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  animation: glow 3s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #79d37c; }
+  50% { box-shadow: 0 0 25px #4ebd53; }
+  100% { box-shadow: 0 0 10px #a5d6a7; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .auth-buttons,
+  .user-info,
+  .left-header {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .auth-buttons a,
+  .user-actions a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+
+.quiz-page {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+  background: #dcedc8;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+}
+
+.quiz-container {
+  background-color: #ffffff;
+  margin: 30px auto;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  width: 90%;
+  max-width: 800px;
+  transition: all 0.3s ease-in-out;
+}
+
+.quiz-question {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.quiz-options label {
+  display: block;
+  background: #f1f8e9;
+  border: 2px solid #c8e6c9;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 17px;
+  color: #2e7d32;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quiz-options label:hover {
+  background: #c8e6c9;
+  transform: scale(1.02);
+}
+
+.quiz-options input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #4caf50;
+}
+
+.quiz-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.quiz-controls button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.quiz-controls button:hover {
+  background-color: #388e3c;
+  box-shadow: 0 0 10px #81c784;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .quiz-container {
+    padding: 25px;
+  }
+
+  .quiz-header {
+    font-size: 16px;
+    padding: 12px 20px;
+    margin-top: 20px;
+  }
+
+  .quiz-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quiz-controls button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.header-title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}

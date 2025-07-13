@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scoreboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #e8f5e9, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    #scoreboard {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+
+    #scoreboard th, #scoreboard td {
+      padding: 15px;
+      border-bottom: 1px solid #c8e6c9;
+      text-align: center;
+    }
+
+    #scoreboard thead {
+      background: #a5d6a7;
+      color: white;
+    }
+
+    .flash-score {
+      background-color: #e8f5e9;
+      border: 2px dashed #4caf50;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      color: #2e7d32;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .flash-score button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #4caf50;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      #scoreboard th, #scoreboard td {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Scoreboard</h2>
+    <div id="flash-result" class="flash-score" style="display:none;">
+      <button onclick="document.getElementById('flash-result').style.display='none';">×</button>
+      Your recent score: <span id="recent-score"></span>
+    </div>
+    <table id="scoreboard">
+      <thead>
+        <tr><th>User</th><th>Score</th></tr>
+      </thead>
+      <tbody>
+        <!-- dynamic rows -->
+      </tbody>
+    </table>
+  </div>
+  <script src="js/auth.js"></script>
+  <script>
+    // Display recent score for 30 seconds
+    const recentScore = localStorage.getItem('lastScore');
+    const recentUser = localStorage.getItem('username');
+    if (recentScore && recentUser) {
+      const flashBox = document.getElementById("flash-result");
+      document.getElementById("recent-score").textContent = `${recentUser} - ${recentScore}`;
+      flashBox.style.display = "block";
+
+      setTimeout(() => {
+        flashBox.style.display = "none";
+        localStorage.removeItem("lastScore");
+      }, 30000);
+    }
+  </script>
+</body>
+</html>

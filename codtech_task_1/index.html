@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - Welcome</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="welcome-page">
+  <div class="header">
+  <div class="left-header">
+    <div class="user-icon">QM</div>
+  </div>
+
+  <div class="header-title">
+    <h1 style="color:#58935a ;">QuizMaster Pro</h1>
+  </div>
+
+  <div class="user-info hidden" id="user-panel">
+    <div class="user-icon" id="user-icon">U</div>
+    <div class="user-actions">
+      <a href="scoreboard.html">Scoreboard</a>
+    </div>
+  </div>
+
+  <div class="auth-buttons" id="auth-buttons">
+    <!-- Login/Signup appears dynamically -->
+  </div>
+</div>
+
+  <div class="center-box">
+    <h1>Welcome <span id="welcome-user">Guest</span> 👋</h1>
+    <p>Test your knowledge with our quiz!</p>
+    <button 
+      id="attempt-btn"
+      style="
+        background: linear-gradient(135deg, #a5d6a7, #ffffff);
+        color: #2e7d32;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease-in-out;
+        margin-top: 20px;"
+      onmouseover="this.style.transform='scale(1.05)'"
+      onmouseout="this.style.transform='scale(1)'"
+    >
+      Attempt Quiz
+    </button>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const user = localStorage.getItem("currentUser");
+    const authBtns = document.getElementById("auth-buttons");
+    const userPanel = document.getElementById("user-panel");
+
+    if (user) {
+      document.getElementById("welcome-user").innerText = user;
+      document.getElementById("user-icon").innerText = user.charAt(0).toUpperCase();
+      authBtns.classList.add("hidden");
+      userPanel.classList.remove("hidden");
+    }
+
+    document.getElementById("attempt-btn").onclick = () => {
+      if (!user) location.href = 'login.html';
+      else location.href = 'quiz.html';
+    };
+  </script>
+</body>
+</html>

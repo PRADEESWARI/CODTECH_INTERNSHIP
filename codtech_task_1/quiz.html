@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Attempt</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="quiz-page">
+  <div class="quiz-header">
+    <div class="quiz-timer">⏱ Time Left: <span id="time">01:00</span></div>
+  </div>
+  <div class="quiz-container">
+    <div id="question-box" class="quiz-question">Loading question...</div>
+    <div id="options-box" class="quiz-options"></div>
+    <div class="quiz-controls">
+      <button id="submit-btn">Submit</button>
+      <button id="next-btn" class="hidden">Next</button>
+    </div>
+  </div>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
