@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CodTech E-Learning - Courses</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary: #003366;
+      --accent: #00796b;
+      --background: #f4f7f9;
+      --text: #333;
+      --shadow: rgba(0, 0, 0, 0.05);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .logo {
+      height: 48px;
+      border-radius: 24px; /* rounded corners */
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1); /* subtle blur effect */
+    }
+
+    .banner {
+      background-color: #d3dde6;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .banner h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #003366;
+    }
+
+    .banner h1 .white-text {
+      color: white;
+    }
+
+    .banner p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    main.course-list {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .course-list h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .courses {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .course-card {
+      background-color: white;
+      padding: 30px 25px;
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px var(--shadow);
+      text-align: left;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .course-card h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .course-card a {
+      text-decoration: none;
+      background-color: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+
+    .course-card a:hover {
+      background-color: #00695c;
+    }
+
+    .course-card .completed-tag {
+      background-color: #4caf50;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .courses {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .course-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="CodTech Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="progress.html">My Progress</a>
+      <a href="certificate.html">Certificate</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1><span class="white-text">Welcome to CodTech E-Learning Platform</span></h1>
+    <p>Explore Courses, Track Progress, and Earn Certificates!</p>
+  </section>
+
+  <main class="course-list">
+    <h2>Courses Enrolled</h2>
+    <div class="courses">
+      <!-- Web Development - Already Completed -->
+      <div class="course-card">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, and JavaScript.</p>
+        <div class="completed-tag">✅ Completed</div>
+      </div>
+
+      <!-- Python Course - Not Started -->
+      <div class="course-card">
+        <h3>Python Programming</h3>
+        <p>Beginner to Advanced Python.</p>
+        <a href="course.html?course=python">Start Course</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodTech Internships</p>
+  </footer>
+</body>
+</html>

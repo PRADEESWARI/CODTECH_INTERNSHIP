@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Course - CodTech</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary: #003366;
+      --accent: #00796b;
+      --background: #f4f7f9;
+      --text: #333;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    .logo {
+      height: 48px;
+      border-radius: 12px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-content {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .course-content h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .course-content p {
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    #player {
+      margin: 30px auto;
+      max-width: 720px;
+    }
+
+    /* Popup styling */
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #popup.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="CodTech Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="progress.html">My Progress</a>
+      <a href="certificate.html">Certificate</a>
+    </nav>
+  </header>
+
+  <main class="course-content">
+    <h2>Course: Python</h2>
+    <p>Watch the full video to complete the course.</p>
+
+    <!-- YouTube Player -->
+    <div id="player"></div>
+  </main>
+
+  <!-- Completion Popup -->
+  <div id="popup">🎉 Congratulations! You've completed the Python course!</div>
+
+  <!-- YouTube IFrame Player API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    let player;
+    let videoCompleted = false;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '360',
+        width: '640',
+        videoId: 'qEwnlMBaLfc', // Your video ID here
+        playerVars: {
+          controls: 1,
+          disablekb: 1,
+          modestbranding: 1,
+          rel: 0
+        },
+        events: {
+          onStateChange: onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED && !videoCompleted) {
+        videoCompleted = true;
+        localStorage.setItem('webdevCompleted', 'true');
+        showPopup();
+      }
+    }
+
+    function showPopup() {
+      const popup = document.getElementById("popup");
+      popup.classList.add("show");
+
+      setTimeout(() => {
+        popup.classList.remove("show");
+        popup.style.display = "none";
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

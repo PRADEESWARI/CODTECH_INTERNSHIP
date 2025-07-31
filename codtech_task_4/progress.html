@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Progress - CodTech</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary: #003366;
+      --accent: #00796b;
+      --background: #f4f7f9;
+      --circle-fill: #4caf50;
+      --circle-bg: #dcdfe3;
+      --text: #333;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .logo {
+      height: 48px;
+    }
+
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+
+    .progress-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .progress-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .progress-block:hover {
+      transform: scale(1.05);
+    }
+
+    .circle-progress {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(var(--circle-fill) var(--percent), var(--circle-bg) 0deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 1s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .circle-progress::before {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .circle-progress span {
+      position: relative;
+      z-index: 2;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.2em;
+    }
+
+    .course-title {
+      margin-top: 15px;
+      font-weight: 500;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      .circle-progress {
+        width: 130px;
+        height: 130px;
+      }
+
+      .circle-progress::before {
+        width: 100px;
+        height: 100px;
+      }
+
+      .course-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="CodTech Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="progress.html">My Progress</a>
+      <a href="certificate.html">Certificate</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Course Progress</h2>
+    <div class="progress-container">
+      <div class="progress-block">
+        <div class="circle-progress" id="webdev-progress" style="--percent: 0deg;">
+          <span id="webdev-text">0%</span>
+        </div>
+        <div class="course-title">Web Development</div>
+      </div>
+      <div class="progress-block">
+        <div class="circle-progress" id="python-progress" style="--percent: 0deg;">
+          <span id="python-text">0%</span>
+        </div>
+        <div class="course-title">Python Programming</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
